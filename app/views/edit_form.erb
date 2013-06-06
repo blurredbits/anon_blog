@@ -1,0 +1,36 @@
+<div id="header" class="container">
+  <h1>Anonymous Blog</h1>
+  <p>Hello, world!</p>
+</div>
+
+  <div id="posts" class="container">
+    <form action="/post/<%= @post.id %>" method="post">
+      <textarea class="entry" name="post[entry]">
+        <%= @post.entry %>
+      </textarea>
+      <input type="submit" value="Save Post">
+    </form>
+    <form action="/post/<%= @post.id %>" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete Post">
+    </form>
+  </div>
+
+<div id="tags" class="container">
+  <ol>
+    <li>Tag #1</li>
+    <li>Tag #2</li>
+    <li>Tag #3</li>
+    <li>Tag #4</li>
+    <li>Tag #5</li>
+  </ol>
+  <form action="/tag/new" method="post">
+    <input type="hidden" value="<%= @post.id %>">
+    <input class="submit" type="text" placeholder="Enter new tag">
+    <input class="button" type="submit" value="New Tag">
+  </form>
+</div>
+
+<div id="footer" class="container">
+  <p>&copy; 2013 BlurredBits</p>
+</div>

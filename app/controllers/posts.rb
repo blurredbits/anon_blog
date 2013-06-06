@@ -9,19 +9,19 @@ post '/post' do
   redirect to("/")
 end
 
-get '/post/:id/' do
-  @post = Post.get(params[:id])
+get '/post/:id' do
+  @post = Post.find(params[:id])
   erb :post_form
 end
 
 get '/post/:id/edit' do
   @post = Post.find(params[:id])
-  erb :post_form
+  erb :edit_form
 end
 
-put '/post/:id' do
-  @post = Post.get(params[:id])
-  @post.update(params)
+post '/post/:id' do
+  @post = Post.find(params[:id])
+  @post.update_attributes(params[:post])
   redirect to ("/post/#{@post.id}")
 end
 
