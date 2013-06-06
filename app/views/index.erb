@@ -1,23 +1,38 @@
-<div class="container">
-  <h1>Welcome to Sinatra!</h1>
+<div id="header" class="container">
+  <h1>Anonymous Blog</h1>
   <p>Hello, world!</p>
+  <form action="/post/new" method="get">
+    <input class="button" type="submit" value="New Post">
+  </form>
+</div>
+<% @posts.each do |post| %>
+<div id="posts" class="container">
+  <textarea class="entry">
+  <%= post.entry %>
+  </textarea>
+  <p class="timestamp">Created at: <%= post.created_at %></p>
+  <form action="/post/<%= post.id %>/edit" method="get">
+    <input type="submit" value="Edit Post">
+  </form>
+</div>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
+<div id="tags" class="container">
+
+  <ol>
+    <li>Tag #1</li>
+    <li>Tag #2</li>
+    <li>Tag #3</li>
+    <li>Tag #4</li>
+    <li>Tag #5</li>
+  </ol>
+  <form action="/tag/new" method="post">
+    <input type="hidden" value="<%= post.id %>">
+    <input class="submit" type="text" placeholder="Enter new tag">
+    <input class="button" type="submit" value="New Tag">
+  </form>
+</div>
+<% end %>
+
+<div id="footer" class="container">
+  <p>&copy; 2013 BlurredBits</p>
 </div>

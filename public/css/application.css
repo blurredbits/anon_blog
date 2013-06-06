@@ -2,8 +2,45 @@
   margin: 20px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+/*  border: 1px dotted black;*/
 }
+
 th {
   text-align: left;
 }
+
+body {
+  background-image:url('/images/anonymous-white.jpg');
+  background-repeat:no-repeat;
+  background-size: 300px 250px;
+  background-position: center top;
+  background-attachment:fixed;
+}
+
+textarea.entry {
+  height: 200px;
+  width: 600px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-family: Tahoma, sans-serif;
+}
+
+div#footer {
+  text-align: center;
+  font-family: Tahoma, sans-serif;
+  font-size: 12px;
+}
+
+p.timestamp {
+  text-align: center;
+  font-family: Tahoma, sans-serif;
+  font-size: 12px;
+  font-style: italic;
+}
+
+input.submit {
+  width: 120px;
+  height: 18px;
+}
+
+
